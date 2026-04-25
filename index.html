@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!--Intro page-->
+  <div id="IntroDiv" class="Gradient">
+
+    <!--Intro Text-->
+    <div class="flex flex-col justify-center place-items-center gap-y-3">
+
+      <p class="great-vibes-regular text-7xl font-bold"> <span><img src="Overlay_for_editor-removebg-preview.png" alt=""
+            class="w-25"></span>Note<span class="text-blue-500">Flow</span></p>
+
+      <p class="text-[16px] font-medium">capture your thoughts and ideas effortously</p>
+
+    </div>
+
+    <!--Intro Image and Button-->
+    <div class="flex flex-col justify-center items-center">
+      <img src=carnet_de_notes_avec_vecteur_de_dessin_animé_stylo_or__1_-removebg-preview.png alt="" class="w-96 ">
+      <button id="IntroBtn" class="bg-blue-500 rounded-full  px-4 py-3 great-vibes-regular text-4xl font-bold
+        shadow-2xl">Start Writing</button>
+
+
+    </div>
+
+  </div>
+
+  <!--File Page-->
+  <div id="inputBoxes" class="rounded-2xl px-5 py-5 bg-gray-200  justify-center gap-y-3.5 hidden">
+
+    <!--Name Input-->
+    <div class="flex flex-col text-2xl gap-y-4">
+      <label for="name" class="font-bold">Name:</label>
+      <input id="nameInput" placeholder="Input Name" class="px-3 py-3 rounded-full bg-gray-300">
+    </div>
+
+    <!--Title Input-->
+    <div class="flex flex-col text-2xl gap-y-4">
+      <label for="title" class="font-bold">Title</label>
+      <input id="titleInput" placeholder="Note Title" class="px-3 py-3 rounded-full bg-gray-300">
+    </div>
+
+    <!--Note Input-->
+    <div class="flex flex-col text-2xl gap-y-4">
+      <label for="note" class="font-bold">Note</label>
+      <textarea name="note" id="noteInput" class="px-3 py-3 rounded-2xl bg-gray-300"></textarea>
+    </div>
+
+    <!--date Input-->
+    <div class="flex flex-col text-2xl gap-y-4">
+      <label for="date" class="font-bold">Date</label>
+      <input type="date" id="dateInput" placeholder="Note Title" class="px-3 py-3 rounded-full bg-gray-300">
+
+      <button id="addBtn"
+        class="great-vibes-regular font-bold bg-blue-500 rounded-full text-5xl px-4 py-3  shadow-2xl">Add</button>
+    </div>
+
+
+  </div>
+
+  <!--STUPID DIV-->
+
+  <div id="disappear" class="hidden">
+    <!--note page-->
+    <div class="flex flex-col gap-y-4 justify-center ">
+      <div class="flex gap-x-8 justify-center py-5">
+      <h1 id="note" class="great-vibes-regular text-7xl font-bold ">>Notes</h1>
+      <button id="plus" class="great-vibes-regular font-bold bg-blue-500 rounded-full text-5xl px-4 py-3  shadow-2xl ">Add</button>
+      </div>
+ 
+      <div id="noteCon" class="w-full px-3">
+
+      </div>
+
+
+    </div>
+
+
+
+
+  </div>
+
+  </div> 
+
+  <div id="modal" class=" h-screen inset-0 hidden  ">
+
+    <div class="bg-white p-6 rounded-lg wrap-break-word w-screen px-5 ">
+      <h2 id="ModalTitle" class="text-2xl font-bold mb-2"></h2>
+      <p id="modalDate" class="text-sm mb-4"></p>
+      <p id="modalContent" class=" mb-4"></p>
+
+      <!--Close button-->
+      <button id="closeModal"
+        class="great-vibes-regular font-bold bg-blue-500 rounded-full text-4xl px-3 py-2.5  shadow-2xl">Close</button>
+
+         <button id="editBtn"
+        class="great-vibes-regular font-bold bg-blue-500 rounded-full text-4xl px-3 py-2.5  shadow-2xl">Edit</button>
+
+
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>

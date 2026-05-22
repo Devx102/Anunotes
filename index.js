@@ -9,6 +9,7 @@ const StartWriting = document.getElementById("IntroBtn");
 const IntroDiv = document.getElementById("IntroDiv");
 const inputBoxMaster = document.getElementById("inputBoxes");
 const plus = document.getElementById("plus");
+const libary = document.getElementById('ntbtn')
 let isEditing = false;
 
 StartWriting.addEventListener("click", () => {
@@ -31,7 +32,7 @@ let selectedIndex = null;
 
 //HAPPY SUNDAY FAM
 //ARRAY / BOX WHERE
-let notes = [];
+let notes = JSON.parse(localStorage.getItem("notes")) || [];
 
 function renderNote() {
   //getting container By Id
@@ -103,36 +104,54 @@ editBtn.addEventListener("click", () => {
   modal.classList.add("hidden");
 });
 
+
+libary.addEventListener('click',() => {
+    disappear.classList.remove("hidden");
+  inputBoxMaster.classList.add("hidden");
+})
+
+
 //addBtn button
 addBtn.addEventListener("click", () => {
+
   //Remove spaces form the input.value
   const name = nameInput.value.trim();
-  const title = titleInput.value.trim();
-  const content = noteInput.value.trim();
-  const date = new Date().toLocaleDateString();
+  const titlevalue = titleInput.value.trim();
+  const contentvalue = noteInput.value.trim();
+  const datevalue = new Date().toLocaleDateString();
 
   //If title is empty don't run the button
-  if (title === "" || content === "") return;
+  if (titlevalue === "" || contentvalue === "") return;
+
+  localStorage.setItem('titlevalue', titlevalue);
+  localStorage.setItem('notevalue', contentvalue);
+  localStorage.setItem('datevalue', datevalue);
+
   disappear.classList.remove("hidden");
   inputBoxMaster.classList.add("hidden");
-  if (isEditing) {
-    notes[selectedIndex].title = title;
-    notes[selectedIndex].content = content;
-    notes[selectedIndex].date = date;
 
-    isEditing = false; // 🔥 THIS WAS MISSING
+  if (isEditing) {
+    notes[selectedIndex].title = titlevalue;
+    notes[selectedIndex].content = contentvalue;
+    notes[selectedIndex].date = datevalue;
+
+    isEditing = false;
     selectedIndex = null;
+
   } else {
     //Storing note details in an object
     const newNote = {
       name,
-      title,
-      content,
-      date,
+      title: titlevalue,
+      content: contentvalue,
+      date: datevalue,
     };
+
     //Add the note details to the notes array
     notes.push(newNote);
   }
+
+
 
   //debug notes
   console.log(notes);
@@ -141,6 +160,13 @@ addBtn.addEventListener("click", () => {
   nameInput.value = "";
   titleInput.value = "";
   noteInput.value = "";
-localStorage.setItem("myNote",notes)
+
+  localStorage.setItem("notes", JSON.stringify(notes));
+
+
+
   renderNote();
+
+  console.log(notes)
 });
+renderNote();
